@@ -1,0 +1,24 @@
+body {
+  background: rgb(228, 223, 47);
+  background: radial-gradient(
+    circle,
+    rgba(228, 233, 47, 0) 40%,
+    rgba(197, 194, 249, 1) 74%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  /* CSS gradient search it */
+}
+
+hr {
+  margin: 20px 0;
+  border: 0;
+  border-top: 1px dashed gray;
+  border-bottom: 1px dashed white;
+}
+.info {
+  margin: 65px auto 0;
+  color: brown;
+  font-size: 11px;
+  text-shadow: 0 1px 0 gray;
+  text-align: center;
+}
