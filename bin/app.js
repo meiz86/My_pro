@@ -5,22 +5,25 @@ var logger = require("morgan");
 const createError = require("http-errors");
 const session = require("express-session");
 const passport = require("passport");
-const SQliteStore = require("connect-sqlite3")(session);
+// const SQliteStore = require("connect-sqlite3")(session);
 const indexRouter = require("../routes/index");
+const path = require("path");
 
 const app = express();
 app.locals.pluralize = require("pluralize");
 
 // View Engine
-app.set("views", __dirname + "/views");
+app.set("views", path.join(__dirname, "..", "views"));
 app.set("view engine", "ejs");
 
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser);
-app.use(express.static("public"));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, "..", "public")));
+app.use("/", indexRouter);
 // a session secret is simply used to compute hash
+/*
 app.use(
   session({
     secret: "secret",
@@ -41,6 +44,7 @@ app.use((req, res, next) => {
   req.session.messages = [];
   next();
 });
+*/
 
 //catch 404 and forward to error handler
 app.use((req, res, next) => {
