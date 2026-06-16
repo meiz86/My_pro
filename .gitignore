@@ -1,0 +1,6 @@
+.env
+var
+
+node_modules
+
+.DS_store

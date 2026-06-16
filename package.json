@@ -7,16 +7,20 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon ./bin/www.js"
   },
   "dependencies": {
+    "connect-sqlite3": "^0.9.16",
     "cookie-parser": "^1.4.7",
+    "debug": "^4.4.3",
     "dotenv": "^17.4.2",
     "ejs": "^6.0.1",
     "express": "^5.2.1",
+    "express-session": "^1.19.0",
     "http-errors": "^2.0.1",
     "mkdirp": "^3.0.1",
     "morgan": "^1.11.0",
+    "passport": "^0.7.0",
     "pluralize": "^8.0.0",
     "sqlite3": "^6.0.1"
   }
