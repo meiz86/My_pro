@@ -9,7 +9,7 @@ const db = new sqlite3.Database("./var/db/exer.db");
 db.serialize(() => {
   db.run(
     // it creates a new table
-    "CREATE TABLE IF NOT EXIST users (\
+    "CREATE TABLE IF NOT EXISTS users (\
         id INTEGER PRIMARY KEY, \
         username TEXT UNIQUE, \
         hashed_password BLOB, \
@@ -21,28 +21,31 @@ db.serialize(() => {
   );
 
   db.run(
-    "CREATE TABLE IF NOT EXIST federated_cridetials (\
+    "CREATE TABLE IF NOT EXISTS federated_cridentials (\
         id INTEGER PRIMARY KEY, \
-        userid INTEGER NOT NULL, \
+        user_id INTEGER NOT NULL, \
         provider TEXT NOT NULL, \
         subject TEXT NOT NULL, \
-        UNIQUE(provider,subject), \
+        UNIQUE (provider, subject) \
         )",
   );
   db.run(
-    "CREATE TABLE IF NOT EXIST exer (\
+    "CREATE TABLE IF NOT EXISTS exer (\
         id INTEGER PRIMARY KEY, \
         owner_id INTEGER NOT NULL, \
         title TEXT NOT NULL, \
-        completed INTEGER, \
+        completed INTEGER \
         )",
   );
 
-  //   salt will made a random bit before the hashing and create a unique passsword
+  // salt will made a random bit before the hashing and create a unique passsword
   let salt = crypto.randomBytes(16);
   db.run(
-    "INSERT OR IGNORE INTO users (username,hashed_password,salt) VALUES (?,?,?,)"[
-      ("alice", crypto.pbkdf2Sync("password", salt, 310000, 32, "sha256"), salt)
+    "INSERT OR IGNORE INTO users (username, hashed_password, salt) VALUES (?,?,?)",
+    [
+      ("alice",
+      crypto.pbkdf2Sync("password", salt, 310000, 32, "sha256"),
+      salt),
     ],
   );
 });

@@ -18,7 +18,8 @@ hr {
 .info {
   margin: 65px auto 0;
   color: brown;
-  font-size: 11px;
+  font-size: 15px;
   text-shadow: 0 1px 0 gray;
   text-align: center;
+  font-weight: 600;
 }

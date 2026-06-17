@@ -5,9 +5,10 @@ var logger = require("morgan");
 const createError = require("http-errors");
 const session = require("express-session");
 const passport = require("passport");
-// const SQliteStore = require("connect-sqlite3")(session);
+const SQliteStore = require("connect-sqlite3")(session);
 const indexRouter = require("../routes/index");
 const path = require("path");
+const db = require("../db");
 
 const app = express();
 app.locals.pluralize = require("pluralize");
@@ -52,7 +53,7 @@ app.use((req, res, next) => {
 });
 
 // Error Habdler
-app.use((er, req, res) => {
+app.use((er, req, res, next) => {
   // set locals only providing error in development
   res.locals.messages = err.messages;
   res.locals.error = req.app.get("env") === "development" ? err : {};

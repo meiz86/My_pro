@@ -1,6 +1,5 @@
 const express = require("express");
 
-
 const router = express.Router();
 
 router.get("/index", (req, res, next) => {
@@ -10,5 +9,7 @@ router.get("/index", (req, res, next) => {
 router.get("/", (req, res, next) => {
   res.render("home.ejs");
 });
-
+router.get("/error", (req, res, next) => {
+  res.render("error.ejs");
+});
 module.exports = router;

@@ -1,0 +1,78 @@
+body {
+  background: rgb(228, 223, 47);
+  background: radial-gradient(
+    circle,
+    rgba(228, 233, 47, 0) 40%,
+    rgba(197, 194, 249, 1) 74%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  /* CSS gradient search it */
+}
+
+.todohome {
+  margin: 140px 0 40px 0;
+  position: relative;
+}
+
+.todohome h1 {
+  position: absolute;
+  top: -140px;
+  width: 100%;
+  font-size: 80px;
+  font-weight: 200;
+  text-align: center;
+  color: orange;
+}
+
+.todohome section {
+  padding: 1px;
+  text-align: center;
+}
+
+.todohome .button {
+  padding: 13px 45px;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  border-radius: 5px;
+  background-color: red;
+  border-radius: 0.3rem;
+}
+
+.alert {
+  padding: 40px;
+  background-color: red;
+  color: white;
+  margin-bottom: 0px;
+}
+
+.info {
+  margin: 65px auto 0;
+  color: brown;
+  font-size: 11px;
+  text-shadow: 0 1px 0 gray;
+  text-align: center;
+}
+.info p {
+  line-height: 1;
+}
+
+.info a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.info a:hover {
+  text-decoration: underline;
+}
+
+.todohome a.button {
+  text-decoration: none;
+}
+
+.todohome h2 {
+  padding-bottom: 48px;
+  font-size: 28px;
+  font-weight: 400;
+}

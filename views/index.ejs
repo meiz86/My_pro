@@ -3,25 +3,54 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="base.css" />
     <title>Exercise APP</title>
   </head>
   <body>
-    <section class="todohome">
-      <header>
-        <h1><a href="/">Exercise APP</a></h1>
-      </header>
+    <section class="todoapp">      
       <section>
-        <h2>Exercise app will help you to get in shape!!!</h2>
-        <a class="button" href="/index">Start APP</a>
-      </section>
+        <nav class="nav">
+          <ul>
+            <li>
+              <form action="">
+                <button class="logout" type="submit">Sign out</button>
+              </form>
+            </li>
+          </ul>
+        </nav>
+        <header class="header">
+          <h1>Exersie App</h1>
+          <form action="">
+            <input class="new_todo" title="name" placeholder="Exercise Activity here" autofocus>
+            <input type="hidden" name="filter">
+          </form>
+        </header>
+        <section class="main">
+          <form action="">            
+            <input>
+            <label for="">Mark all as Complete</label>
+          </form>
+          <ul>
+          </ul>
+        </section>
     </section>
-    <footer class="info">
-      <p>Created by</p>
-      <a href="">M3hd1 Iz</a>
-      <p>made with love</p>
-      <p>Authentication powered by <a href="">Passport</a></p>
+    <footer class="footer">
+      <span></span>
+      <ul class="filters">
+        <li>
+          <a href="">all</a>
+        </li>
+        <li>
+          <a href="">Active</a>
+        </li>
+        <li>
+          <a href="">Completed</a>
+        </li>
+      </ul>
+      <form action="">
+        <button>Clear Completed</button>
+      </form>
     </footer>
   </body>
 </html>
