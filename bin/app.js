@@ -9,9 +9,11 @@ const SQliteStore = require("connect-sqlite3")(session);
 const indexRouter = require("../routes/index");
 const path = require("path");
 const db = require("../db");
+const authRouter = require("../routes/auth");
 
 const app = express();
 app.locals.pluralize = require("pluralize");
+const message = "Not Found";
 
 // View Engine
 app.set("views", path.join(__dirname, "..", "views"));
@@ -23,6 +25,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "..", "public", "css")));
 app.use("/", indexRouter);
+app.use("/", authRouter);
 // a session secret is simply used to compute hash
 /*
 app.use(
@@ -53,9 +56,9 @@ app.use((req, res, next) => {
 });
 
 // Error Habdler
-app.use((er, req, res, next) => {
+app.use((err, req, res, next) => {
   // set locals only providing error in development
-  res.locals.messages = err.messages;
+  res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
 
   //   Render error page

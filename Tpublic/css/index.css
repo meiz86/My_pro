@@ -1,0 +1,141 @@
+body {
+  background: rgb(228, 223, 47);
+  background: radial-gradient(
+    circle,
+    rgba(228, 233, 47, 0) 40%,
+    rgba(197, 194, 249, 1) 74%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font:
+    14px "Helvetica Neue",
+    "Arial";
+  line-height: 1.4em;
+  color: black;
+  min-width: 230px;
+  max-width: 550px;
+  margin: auto;
+  font-weight: 300;
+  /* CSS gradient search it */
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 100%;
+  vertical-align: baseline;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+.todoapp {
+  background-color: white;
+  margin: 130px 0 40px 0;
+  position: relative;
+  box-shadow: 0 2px 4px black 0 25px 50px 0 black;
+}
+
+.todoapp h1 {
+  position: absolute;
+  top: -140px;
+  width: 100%;
+  font-size: 80px;
+  font-weight: 200;
+  text-align: center;
+  color: orange;
+}
+
+.todohome section {
+  padding: 1px;
+  text-align: center;
+}
+
+.todohome .button {
+  padding: 13px 45px;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  border-radius: 5px;
+  background-color: red;
+  border-radius: 0.3rem;
+}
+
+.alert {
+  padding: 40px;
+  background-color: red;
+  color: white;
+  margin-bottom: 0px;
+}
+
+.info {
+  margin: 65px auto 0;
+  color: brown;
+  font-size: 11px;
+  text-shadow: 0 1px 0 gray;
+  text-align: center;
+}
+.info p {
+  line-height: 1;
+}
+
+.info a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.info a:hover {
+  text-decoration: underline;
+}
+
+.todohome a.button {
+  text-decoration: none;
+}
+
+.todohome h2 {
+  padding-bottom: 48px;
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.footer {
+  padding: 10px 15;
+  height: 20px;
+  text-align: center;
+  font-size: 15px;
+  border-top: 1px solid pink;
+}
+
+.hidden {
+  display: none;
+}
+
+.main {
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid white;
+}
+
+.new_todo {
+  padding: 16px;
+  height: 65px;
+  border: none;
+  background: black;
+  box-shadow: inset 0 -2px 1px black;
+}
+
+.footer:before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px black 0 25px 50px 0 black;
+}
