@@ -9,6 +9,8 @@ const router = express.Router();
 router.get(
   "/",
   (req, res, next) => {
+    //   console.log("req.user =", req.user);
+
     if (!req.user) return res.render("home");
     next();
   },
@@ -17,4 +19,7 @@ router.get(
     res.render("index", { user: req.user });
   },
 );
+
+router.get("/signup", (req, res, next) => res.render("signup"));
+
 module.exports = router;

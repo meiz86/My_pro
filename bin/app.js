@@ -2,10 +2,12 @@ require("dotenv").config();
 const express = require("express");
 const cookieParser = require("cookie-parser");
 var logger = require("morgan");
-const createError = require("http-errors");
 const session = require("express-session");
-const passport = require("passport");
 const SQliteStore = require("connect-sqlite3")(session);
+const createError = require("http-errors");
+
+const passport = require("passport");
+
 const indexRouter = require("../routes/index");
 const path = require("path");
 const db = require("../db");
@@ -24,23 +26,23 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "..", "public", "css")));
-app.use("/", indexRouter);
-app.use("/", authRouter);
 // a session secret is simply used to compute hash
-/*
+
 app.use(
   session({
-    secret: "secret",
+    secret: "keyboard cat",
     resave: false,
     saveUninitialized: false,
     store: new SQliteStore({
-      db: "sessionStorage.db",
-      dir: "./var/dir",
+      db: "sessions.db",
+      dir: "./var/db",
     }),
   }),
 );
-
 app.use(passport.authenticate("session"));
+app.use("/", indexRouter);
+app.use("/", authRouter);
+
 app.use((req, res, next) => {
   let msgs = req.session.messages || [];
   res.locals.messages = msgs;
@@ -48,7 +50,6 @@ app.use((req, res, next) => {
   req.session.messages = [];
   next();
 });
-*/
 
 //catch 404 and forward to error handler
 app.use((req, res, next) => {

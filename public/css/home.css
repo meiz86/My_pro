@@ -11,9 +11,9 @@ body {
 
 .todohome h1 {
 	position: absolute;
-	top: -140px;
+	top: -100px;
 	width: 100%;
-	font-size: 80px;
+	font-size: 50px;
 	font-weight: 200;
 	text-align: center;
 	color: #b83f45;

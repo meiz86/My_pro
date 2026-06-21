@@ -6,38 +6,40 @@
     <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="base.css" />
     <link rel="stylesheet" href="app.css" />
-    <title>Exercise APP</title>
+    <title>Exercise APP - NEW</title>
   </head>
   <body>
     <section class="todoapp">      
       <section>
         <nav class="nav">
           <ul>
+            <li class="user"><%= user.name || user.username || user.email %></li>
             <li>
-              <form action="">
+              <form action="logout" method="post">
                 <button class="logout" type="submit">Sign out</button>
               </form>
             </li>
           </ul>
         </nav>
         <header class="header">
-          <h1>Exersie App</h1>
+          <h1>Home Page</h1>
           <form action="">
-            <input class="new_todo" title="name" placeholder="Exercise Activity here" autofocus>
+            <input class="new-todo" title="name" placeholder="Exercise Activity here" autofocus>
             <input type="hidden" name="filter">
           </form>
         </header>
         <section class="main">
           <form action="">            
-            <input>
+            <input class="new-todo-input">
+            <input type="checkbox">
             <label for="">Mark all as Complete</label>
           </form>
-          <ul>
-          </ul>
+          <form action="">
+           <button class="submit" >Clear Completed</button>
+         </form>
         </section>
     </section>
     <footer class="footer">
-      <span></span>
       <ul class="filters">
         <li>
           <a href="">all</a>
@@ -47,11 +49,9 @@
         </li>
         <li>
           <a href="">Completed</a>
-        </li>
+        </li>       
       </ul>
-      <form action="">
-        <button>Clear Completed</button>
-      </form>
+     
     </footer>
   </body>
 </html>
