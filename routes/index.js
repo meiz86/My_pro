@@ -1,4 +1,5 @@
 const express = require("express");
+const crypto = require("crypto");
 
 const router = express.Router();
 
@@ -20,6 +21,6 @@ router.get(
   },
 );
 
-router.get("/signup", (req, res, next) => res.render("signup"));
+
 
 module.exports = router;

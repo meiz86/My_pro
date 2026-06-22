@@ -418,7 +418,7 @@ html .clear-completed:active {
   outline: 0;
 }
 .submit {
-	margin-top: 1rem;
+  margin-top: 1rem;
   color: white;
   background-color: red;
   font-size: 1.5rem;

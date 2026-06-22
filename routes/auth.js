@@ -2,6 +2,7 @@ const express = require("express");
 const passport = require("passport");
 const localSterategy = require("passport-local");
 const crypto = require("crypto");
+const GoogleSterategy = require("passport-google-oidc");
 const db = require("../db");
 
 passport.use(
@@ -65,6 +66,9 @@ router.post("/logout", (req, res, next) => {
     res.redirect("/");
   });
 });
+
+router.get("/login/federated/google", passport.authenticate("google"));
+router.get("/login/federated/facebook", passport.authenticate("facebook"));
 
 router.get("/signup", (req, res, next) => res.render("signup"));
 
