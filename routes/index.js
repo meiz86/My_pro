@@ -89,4 +89,36 @@ router.post(
   },
 );
 
+router.post("/:id/delete", ensuredLoggedIn, (req, res, next) => {
+  db.run(
+    "DELETE FROM exer WHERE id = ? AND owner_id = ?",
+    [req.params.id, req.user.id],
+    (err) => {
+      if (err) return next(err);
+      return res.redirect("/" + (req.body.filter || ""));
+    },
+  );
+});
+
+router.post("/toggle-all", ensuredLoggedIn, (req, res, next) => {
+  db.run(
+    "UPDATE exer SET completed = ? WHERE owner_id = ?",
+    [req.params.id, req.user.id],
+    (err) => {
+      if (err) return next(err);
+      return res.redirect("/" + (req.body.filter || ""));
+    },
+  );
+});
+
+router.post("/:id/delete", ensuredLoggedIn, (req, res, next) => {
+  db.run(
+    "DELETE FROM exer WHERE id = ? AND owner_id = ?",
+    [req.params.id, req.user.id],
+    (err) => {
+      if (err) return next(err);
+      return res.redirect("/" + (req.body.filter || ""));
+    },
+  );
+});
 module.exports = router;
