@@ -10,6 +10,7 @@
     "start": "nodemon ./bin/www.js"
   },
   "dependencies": {
+    "connect-ensure-login": "^0.1.1",
     "connect-sqlite3": "^0.9.16",
     "cookie-parser": "^1.4.7",
     "debug": "^4.4.3",
@@ -21,6 +22,7 @@
     "mkdirp": "^3.0.1",
     "morgan": "^1.11.0",
     "passport": "^0.7.0",
+    "passport-google-oidc": "^0.1.0",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "pluralize": "^8.0.0",

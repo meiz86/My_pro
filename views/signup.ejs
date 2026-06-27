@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="index.css" />
+    <title>New User</title>
+  </head>
+  <body>
+    <form action="/signup" method="post">
+      <section class="prompt">
+        <h1>
+          Exercise App
+        </h1>
+        <h3 >signup</h3>
+        <label for="username">Username</label>
+        <input
+          id="username"
+          name="username"
+          type="text"
+          autocomplete0="username"
+          required
+        />
+        <br />
+        <br />
+        <label for="password">Password</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          autocomplete0="new - password"
+          required
+        />
+    
+      <button type="submit" class="submit">Sign Up</button>
+    </form>
+    <hr />
+    <p class="help">Already have account??? <a href="/login">Sign in</a></p>
+</section>  
+</body>
+
+  <footer class="info">
+    <p>Created by</p>
+    <a href="https://www.wallex.ir">M3hd1 Iz</a>
+    <p>Made with love</p>
+    <p>Authentication powered by <a href="">Passport</a></p>
+  </footer>
+</html>

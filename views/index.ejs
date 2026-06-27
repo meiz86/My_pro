@@ -1,57 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css" />
-    <link rel="stylesheet" href="base.css" />
-    <link rel="stylesheet" href="app.css" />
-    <title>Exercise APP</title>
-  </head>
-  <body>
-    <section class="todoapp">      
-      <section>
-        <nav class="nav">
-          <ul>
-            <li>
-              <form action="">
-                <button class="logout" type="submit">Sign out</button>
-              </form>
-            </li>
-          </ul>
-        </nav>
-        <header class="header">
-          <h1>Exersie App</h1>
-          <form action="">
-            <input class="new_todo" title="name" placeholder="Exercise Activity here" autofocus>
-            <input type="hidden" name="filter">
-          </form>
-        </header>
-        <section class="main">
-          <form action="">            
-            <input>
-            <label for="">Mark all as Complete</label>
-          </form>
-          <ul>
-          </ul>
-        </section>
-    </section>
-    <footer class="footer">
-      <span></span>
-      <ul class="filters">
-        <li>
-          <a href="">all</a>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="base.css" />
+  <link rel="stylesheet" href="app.css" />
+  <title>Exercise APP - NEW</title>
+</head>
+
+<body>
+  <section class="todoapp">
+    <nav class="nav">
+      <ul>
+        <li class="user">
+          <%= user.name || user.username || user.email %>
         </li>
         <li>
-          <a href="">Active</a>
-        </li>
-        <li>
-          <a href="">Completed</a>
+          <form action="logout" method="post">
+            <button class="logout" type="submit">Sign out</button>
+          </form>
         </li>
       </ul>
-      <form action="">
-        <button>Clear Completed</button>
+    </nav>
+    <header class="header">
+      <h1>Home Page</h1>
+      <form action="/" method="post">
+        <input class="new-todo" name="title" placeholder="Add an Exercise Here" autofocus>
+        <% if (filter) { %>
+          <input type="hidden" name="filter" class="edit" value="<%= filter %>" />
+          <% } %>
       </form>
-    </footer>
-  </body>
+    </header>
+    <% if (activeCount + completedCount> 0 ) { %>
+      <section class="main">
+        <form action="/toggle-all"  method="post">
+          <input type="checkbox" id="toggle-all" name="completed" <%= activeCount===0 ? 'checked' : '' %>
+          onchange="this.form.submit();">
+          <label for="toggle-all">Mark all as Complete</label>
+        </form>
+        <ul class="todo-list">
+          <% exer.forEach(function(todo) { %>
+            <li <%= todo.completed ? 'class="completed"' : "" %>>
+              <form action="<%= todo.url %>" method="post">
+                <div class="view">
+                  <input class="toggle" type="checkbox" name="completed" <%= todo.completed ? 'checked' : '' %>
+                  onchange="this.form.submit();">
+                  <label
+                    ondblclick="this.closest('li').className = this.closest('li').className + 'editing'; this.closest('li').querySelector('input.edit').focus(); this.closest('li').querySelector('input.edit').value = ''; this.closest('li').querySelector('input.edit').value = '<%= todo.title %>';">
+                    <%= todo.title %>
+                  </label>
+                </div>
+              </form>
+            </li>
+            <% }); %>
+        </ul>
+        <form action="">
+          <button class="submit">Clear Completed</button>
+        </form>
+      </section>
+      <footer class="footer">
+        <ul class="filters">
+          <li>
+            <a href="">all</a>
+          </li>
+          <li>
+            <a href="">Active</a>
+          </li>
+          <li>
+            <a href="">Completed</a>
+          </li>
+        </ul>
+      </footer>
+      <% } %>
+        <br>
+  </section>
+
+  <footer class="info">
+    <p>Click to edit activities</p>
+    <p>Authentication powered by <a href="https://www.passportjs.org">Passport</a></p>
+    <hr>
+  </footer>
+</body>
+
 </html>

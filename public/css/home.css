@@ -1,58 +1,62 @@
 body {
-	background: rgb(228,233,47);
-	background: radial-gradient(circle, rgba(228,233,47,0) 40%, rgba(197,194,249,1) 74%, rgba(0,212,255,1) 100%);
-	
+  background: rgb(228, 233, 47);
+  background: radial-gradient(
+    circle,
+    rgba(228, 233, 47, 0) 40%,
+    rgba(197, 194, 249, 1) 74%,
+    rgba(0, 212, 255, 1) 100%
+  );
 }
 
 .todohome {
-	margin: 130px 0 40px 0;
-	position: relative;
+  margin: 130px 0 40px 0;
+  position: relative;
 }
 
 .todohome h1 {
-	position: absolute;
-	top: -140px;
-	width: 100%;
-	font-size: 80px;
-	font-weight: 200;
-	text-align: center;
-	color: #b83f45;
-	-webkit-text-rendering: optimizeLegibility;
-	-moz-text-rendering: optimizeLegibility;
-	text-rendering: optimizeLegibility;
+  position: absolute;
+  top: -100px;
+  width: 100%;
+  font-size: 50px;
+  font-weight: 200;
+  text-align: center;
+  color: #b83f45;
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
 }
 
 .todohome section {
-	padding-top: 1px;
-	text-align: center;
+  padding-top: 1px;
+  text-align: center;
 }
 
 .todohome h2 {
-	padding-bottom: 48px;
-	font-size: 28px;
-	font-weight: 300;
+  padding-bottom: 48px;
+  font-size: 28px;
+  font-weight: 300;
 }
 
 .todohome .button {
-	padding: 13px 45px;
-	font-size: 16px;
-	font-weight: 500;
-	color: white;
-	border-radius: 5px;
-	background: #d83f45;
+  padding: 13px 45px;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  border-radius: 5px;
+  background: #d83f45;
 }
 
 .todohome a.button {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 /* The alert message box */
 .alert {
-	padding: 40px;
-	background-color: #f44336; /* Red */
-	color: white;
-	margin-bottom: 0px;
-  }
+  padding: 40px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 0px;
+}
 
 .info {
   margin: 65px auto 0;
@@ -60,6 +64,14 @@ body {
   font-size: 11px;
   text-shadow: 0 1px 0 gray;
   text-align: center;
+  background: rgb(228, 233, 47);
+
+  background: radial-gradient(
+    circle,
+    rgba(228, 233, 47, 0) 40%,
+    rgba(197, 194, 249, 1) 74%,
+    rgba(0, 212, 255, 1) 100%
+  );
 }
 .info p {
   line-height: 1;
