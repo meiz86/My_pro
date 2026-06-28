@@ -89,6 +89,82 @@ router.post(
   },
 );
 
+// router.post(
+//   "/:id/delete",
+//   ensuredLoggedIn,
+//   (req, res, next) => {
+//     req.body.title = req.body.title.trim();
+//     next();
+//   },
+//   (req, res, next) => {
+//     if (req.body.title !== "") return next();
+//     db.run(
+//       "DELETE FROM exer WHERE id = ? AND owner_id = ?",
+//       [req.params.id, req.user.id],
+//       (err) => {
+//         if (err) return next(err);
+//         return res.redirect("/" + (req.body.filter || ""));
+//       },
+//     );
+//   },
+//   (req, res, next) => {
+//     db.run(
+//       "UPDATE exer SET title = ? completed = ? WHERE id = ? owner_id = ? ",
+//       [
+//         req.body.title,
+//         req.body.completed !== undefined ? 1 : null,
+//         req.params.id,
+//         req.user.id,
+//       ],
+//       (err) => {
+//         if (err) return next(err);
+//         return res.redirect("/" + (req.body.filter || ""));
+//       },
+//     );
+//   },
+// );
+
+// router.post(
+//   "/:id/delete",
+//   ensuredLoggedIn,
+//   (req, res, next) => {
+//     req.body.title = req.body.title.trim();
+//     next();
+//   },
+//   function (req, res, next) {
+//     if (req.body.title !== "") {
+//       return next();
+//     }
+//     db.run(
+//       "DELETE FROM exer WHERE id = ? AND owner_id = ?",
+//       [req.params.id, req.user.id],
+//       function (err) {
+//         if (err) {
+//           return next(err);
+//         }
+//         return res.redirect("/" + (req.body.filter || ""));
+//       },
+//     );
+//   },
+//   function (req, res, next) {
+//     db.run(
+//       " UPDATE exer SET title = ?, completed = ? WHERE id = ? AND owner_id = ?",
+//       [
+//         req.body.title,
+//         req.body.completed !== undefined ? 1 : null,
+//         req.params.id,
+//         req.user.id,
+//       ],
+//       function (err) {
+//         if (err) {
+//           return next(err);
+//         }
+//         return res.redirect("/" + (req.body.filter || ""));
+//       },
+//     );
+//   },
+// );
+
 router.post("/:id/delete", ensuredLoggedIn, (req, res, next) => {
   db.run(
     "DELETE FROM exer WHERE id = ? AND owner_id = ?",
@@ -103,7 +179,7 @@ router.post("/:id/delete", ensuredLoggedIn, (req, res, next) => {
 router.post("/toggle-all", ensuredLoggedIn, (req, res, next) => {
   db.run(
     "UPDATE exer SET completed = ? WHERE owner_id = ?",
-    [req.params.id, req.user.id],
+    [req.body.completed !== undefined ? 1 : null, req.user.id],
     (err) => {
       if (err) return next(err);
       return res.redirect("/" + (req.body.filter || ""));
@@ -111,10 +187,10 @@ router.post("/toggle-all", ensuredLoggedIn, (req, res, next) => {
   );
 });
 
-router.post("/:id/delete", ensuredLoggedIn, (req, res, next) => {
+router.post("/clear-completed", ensuredLoggedIn, (req, res, next) => {
   db.run(
     "DELETE FROM exer WHERE id = ? AND owner_id = ?",
-    [req.params.id, req.user.id],
+    [req.user.id, 1],
     (err) => {
       if (err) return next(err);
       return res.redirect("/" + (req.body.filter || ""));
